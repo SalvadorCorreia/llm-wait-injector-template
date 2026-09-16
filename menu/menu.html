@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+  <div class="header">
+    <h2>Extension Settings</h2>
+  </div>
+  
+  <div class="analytics-card">
+    <span class="label">Wait Time Tracked:</span>
+    <span class="value" id="time-display">0m 0s</span>
+  </div>
+
+  <div class="settings-group">
+    <label class="toggle-row">
+      <span>Enable Extension</span>
+      <input type="checkbox" id="global-toggle">
+    </label>
+  </div>
+
+  <div class="settings-group">
+    <h3>Providers</h3>
+    <div id="provider-list">
+      <label class="toggle-row">
+        <span>ChatGPT</span>
+        <input type="checkbox" class="provider-toggle" value="ChatGPT">
+      </label>
+      <label class="toggle-row">
+        <span>Claude</span>
+        <input type="checkbox" class="provider-toggle" value="Claude">
+      </label>
+      <!-- Developers can add other providers here to match their registry -->
+    </div>
+  </div>
+
+  <!-- Custom Payload Settings Slot -->
+  <div class="settings-group custom-settings">
+    <h3>Payload Settings</h3>
+    <p class="hint">Developers: Add custom payload controls here.</p>
+  </div>
+
+  <script src="menu.js"></script>
+</body>
+</html>
