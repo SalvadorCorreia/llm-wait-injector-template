@@ -10,8 +10,11 @@
   </div>
   
   <div class="analytics-card">
-    <span class="label">Wait Time Tracked:</span>
-    <span class="value" id="time-display">0m 0s</span>
+    <div>
+      <span class="label">Wait Time Tracked:</span>
+      <span class="value" id="time-display">0m 0s</span>
+    </div>
+    <button id="reset-time-btn" class="reset-btn">Reset</button>
   </div>
 
   <div class="settings-group">
@@ -23,25 +26,15 @@
 
   <div class="settings-group">
     <h3>Providers</h3>
-    <div id="provider-list">
-      <label class="toggle-row">
-        <span>ChatGPT</span>
-        <input type="checkbox" class="provider-toggle" value="ChatGPT">
-      </label>
-      <label class="toggle-row">
-        <span>Claude</span>
-        <input type="checkbox" class="provider-toggle" value="Claude">
-      </label>
-      <!-- Developers can add other providers here to match their registry -->
-    </div>
+    <div id="provider-list"></div>
   </div>
 
-  <!-- Custom Payload Settings Slot -->
   <div class="settings-group custom-settings">
     <h3>Payload Settings</h3>
     <p class="hint">Developers: Add custom payload controls here.</p>
   </div>
 
+  <script src="../core/src/registry.js"></script>
   <script src="menu.js"></script>
 </body>
 </html>
