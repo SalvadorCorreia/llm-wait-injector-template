@@ -20,28 +20,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
       globalToggle.checked = data.globalEnabled;
 
-      fetch(extAPI.runtime.getURL("manifest.json"))
-        .then((response) => response.json())
-        .then((manifest) => {
-          const scripts = manifest.content_scripts[0].js;
-          const providerScripts = scripts.filter((src) =>
-            src.includes("/providers/"),
-          );
+      // Use native getManifest instead of fetching the file
+      const manifest = extAPI.runtime.getManifest();
+      const scripts = manifest.content_scripts[0].js;
+      const providerScripts = scripts.filter((src) =>
+        src.includes("/providers/"),
+      );
 
-          let loadedCount = 0;
+      let loadedCount = 0;
 
-          providerScripts.forEach((src) => {
-            const script = document.createElement("script");
-            script.src = extAPI.runtime.getURL(src);
-            script.onload = () => {
-              loadedCount++;
-              if (loadedCount === providerScripts.length) {
-                renderProviders(data.disabledProviders);
-              }
-            };
-            document.body.appendChild(script);
-          });
-        });
+      providerScripts.forEach((src) => {
+        const script = document.createElement("script");
+        script.src = extAPI.runtime.getURL(src);
+        script.onload = () => {
+          loadedCount++;
+          if (loadedCount === providerScripts.length) {
+            renderProviders(data.disabledProviders);
+          }
+        };
+        document.body.appendChild(script);
+      });
     },
   );
 

@@ -15,8 +15,7 @@
   },
   "background": {
     "service_worker": "core/src/analytics-worker.js",
-    "scripts": ["core/src/analytics-worker.js"],
-    "type": "module"
+    "scripts": ["core/src/analytics-worker.js"]
   },
   "content_scripts": [
     {
